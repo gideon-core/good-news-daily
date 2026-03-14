@@ -121,13 +121,19 @@ function normalizeItem(item, sourceName) {
     item["media:content"]?.url ||
     item["media:thumbnail"]?.url ||
     null;
+  const rawSummary =
+    item.description?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() ||
+    "A positive story worth opening.";
+  const cleanedSummary = rawSummary
+    .replace(/\[\&#8230;\]/g, "...")
+    .replace(/The post .* appeared first on .*\.?/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
   return {
     title: item.title || "Untitled story",
     link: item.link || "#",
-    summary:
-      item.description?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() ||
-      "A positive story worth opening.",
+    summary: cleanedSummary || "A positive story worth opening.",
     pubDate: item.pubDate || item.published || null,
     image,
     source: sourceName,

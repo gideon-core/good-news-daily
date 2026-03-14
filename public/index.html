@@ -13,44 +13,101 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero">
-        <p class="eyebrow">Daily signal, less noise</p>
-        <h1>Good news for today, plus affirmations that rotate every day.</h1>
-        <p class="intro">
-          This page pulls uplifting stories from live positive-news feeds and pairs
-          them with a fresh set of daily affirmations.
-        </p>
-        <div class="hero-meta">
-          <span id="generated-at">Loading today’s update...</span>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <p class="brand-chip">Good News Daily</p>
+          <h1>The positive feed.</h1>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span id="generated-at">Loading today’s feed...</span>
+        </div>
+      </header>
+
+      <section class="composer-card">
+        <div class="composer-avatar">G</div>
+        <div class="composer-copy">
+          <p class="composer-label">Today’s brief</p>
+          <p class="composer-text">
+            A social-style timeline of uplifting stories, calm momentum, and a few
+            fresh affirmations mixed straight into the feed.
+          </p>
         </div>
       </section>
 
-      <section class="content-grid">
-        <section class="panel panel-accent">
-          <div class="panel-header">
-            <p class="section-kicker">Affirmations</p>
-            <h2>Today’s set</h2>
+      <section class="layout-grid">
+        <section class="feed-column">
+          <div class="feed-header">
+            <div>
+              <p class="section-kicker">Main feed</p>
+              <h2>Good stuff worth scrolling</h2>
+            </div>
+            <p class="feed-subtitle">Live stories from positive-news sources.</p>
           </div>
-          <ul id="affirmations" class="affirmation-list"></ul>
+          <div id="feed" class="feed-list"></div>
         </section>
 
-        <section class="panel">
-          <div class="panel-header">
-            <p class="section-kicker">Good news</p>
-            <h2>Fresh stories</h2>
-          </div>
-          <div id="news" class="news-list"></div>
-        </section>
+        <aside class="sidebar-column">
+          <section class="sidebar-card">
+            <p class="section-kicker">Today’s vibe</p>
+            <h3>Small wins. Useful hope. Less doom.</h3>
+            <p>
+              This page favors signal over outrage and keeps the timeline centered
+              on practical optimism.
+            </p>
+          </section>
+
+          <section class="sidebar-card sidebar-accent">
+            <p class="section-kicker">Affirmation stack</p>
+            <div id="affirmation-stack" class="affirmation-stack"></div>
+          </section>
+        </aside>
       </section>
     </main>
 
-    <template id="news-card-template">
-      <article class="news-card">
-        <p class="news-source"></p>
-        <h3></h3>
-        <p class="news-summary"></p>
-        <a class="news-link" target="_blank" rel="noreferrer">Open story</a>
+    <template id="story-template">
+      <article class="post-card post-story">
+        <div class="post-header">
+          <div class="avatar source-avatar"></div>
+          <div class="post-meta">
+            <p class="post-author"></p>
+            <p class="post-handle"></p>
+          </div>
+        </div>
+        <div class="post-media">
+          <div class="post-media-badge">Good Feed</div>
+          <div class="post-media-text"></div>
+        </div>
+        <div class="post-body">
+          <h3 class="post-title"></h3>
+          <p class="post-summary"></p>
+        </div>
+        <div class="post-actions">
+          <span class="action-pill action-cheer"></span>
+          <span class="action-pill action-boost"></span>
+          <a class="open-story" target="_blank" rel="noreferrer">Read story</a>
+        </div>
+      </article>
+    </template>
+
+    <template id="affirmation-template">
+      <article class="post-card post-affirmation">
+        <div class="post-header">
+          <div class="avatar affirmation-avatar">+</div>
+          <div class="post-meta">
+            <p class="post-author">Daily affirmation</p>
+            <p class="post-handle">Fresh for today</p>
+          </div>
+        </div>
+        <p class="affirmation-quote"></p>
+        <div class="post-actions">
+          <span class="action-pill action-cheer"></span>
+          <span class="action-pill action-save"></span>
+        </div>
       </article>
     </template>
 
