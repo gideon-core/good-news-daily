@@ -11,8 +11,8 @@ const parser = new XMLParser({
 
 const NEWS_SOURCES = [
   {
-    name: "Good Good Good",
-    url: "https://www.goodgoodgood.co/rss.xml",
+    name: "Good News Network",
+    url: "https://www.goodnewsnetwork.org/feed/",
   },
   {
     name: "Positive News",
