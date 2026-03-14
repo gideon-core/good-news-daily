@@ -20,6 +20,14 @@ docker run --rm -p 3000:3000 good-news-daily
 
 Then open `http://localhost:3000`.
 
+## Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Then open `http://localhost:3000`.
+
 ## What it does
 
 - Fetches uplifting stories from live RSS feeds on the server.
